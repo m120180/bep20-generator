@@ -8,7 +8,7 @@
     "lint:fix": "eslint .vuepress --fix",
     "dev": "vuepress dev",
     "build": "vuepress build",
-    "deploy": "vuepress build && sh scripts/deploy.sh"
+    "deploy": "vuepress build && bash scripts/deploy.sh"
   },
   "keywords": [],
   "bugs": {
