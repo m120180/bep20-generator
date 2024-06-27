@@ -1,5 +1,5 @@
 {
-  "contractName": "BurnableBEP20",
+  "contractName": "Burnable",
   "abi": [
     {
       "inputs": [

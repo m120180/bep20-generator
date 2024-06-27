@@ -1,44 +1,44 @@
 <template>
     <b-container fluid class="footer">
-        <b-row class="bg-dark text-light py-4">
-            <b-col lg="12" xl="8" offset-xl="2">
-                <b-row>
-                    <b-col lg="4">
-                        <b-list-group flush>
-                            <b-list-group-item to="/" class="text-light">
-                                BEP20 Token Generator
-                            </b-list-group-item>
-                            <b-list-group-item to="/docs/" class="text-light">
-                                Documentation
-                            </b-list-group-item>
-                        </b-list-group>
-                    </b-col>
-                    <b-col lg="4">
-                        <b-list-group flush>
-                            <b-list-group-item to="/create-token/" class="text-light">
-                                Create BEP20 Token
-                            </b-list-group-item>
-                            <b-list-group-item href="https://digiswap-core.github.io/erc20-generator/" target="_blank" class="text-warning">
-                                Create ERC20 Token
-                            </b-list-group-item>
-                        </b-list-group>
-                    </b-col>
-                </b-row>
-            </b-col>
-            <b-col lg="12" xl="8" offset-xl="2">
-                <hr>
-                <b-list-group flush>
-                    <b-list-group-item>
-                        <small>
-                            by
-                            <b-link class="text-warning" href="https://digiswap.finance" target="_blank">
-                                DigiSwap Finance
-                            </b-link>
-                        </small>
-                    </b-list-group-item>
-                </b-list-group>
-            </b-col>
-        </b-row>
+<!--        <b-row class="bg-dark text-light py-4">-->
+<!--            <b-col lg="12" xl="8" offset-xl="2">-->
+<!--                <b-row>-->
+<!--                    <b-col lg="4">-->
+<!--                        <b-list-group flush>-->
+<!--                            <b-list-group-item to="/" class="text-light">-->
+<!--                                BEP20 Token Generator-->
+<!--                            </b-list-group-item>-->
+<!--                            <b-list-group-item to="/docs/" class="text-light">-->
+<!--                                Documentation-->
+<!--                            </b-list-group-item>-->
+<!--                        </b-list-group>-->
+<!--                    </b-col>-->
+<!--                    <b-col lg="4">-->
+<!--                        <b-list-group flush>-->
+<!--                            <b-list-group-item to="/create-token/" class="text-light">-->
+<!--                                Create BEP20 Token-->
+<!--                            </b-list-group-item>-->
+<!--                            <b-list-group-item href="https://digiswap-core.github.io/erc20-generator/" target="_blank" class="text-warning">-->
+<!--                                Create ERC20 Token-->
+<!--                            </b-list-group-item>-->
+<!--                        </b-list-group>-->
+<!--                    </b-col>-->
+<!--                </b-row>-->
+<!--            </b-col>-->
+<!--            <b-col lg="12" xl="8" offset-xl="2">-->
+<!--                <hr>-->
+<!--                <b-list-group flush>-->
+<!--                    <b-list-group-item>-->
+<!--                        <small>-->
+<!--                            by-->
+<!--                            <b-link class="text-warning" href="https://digiswap.finance" target="_blank">-->
+<!--                                DigiSwap Finance-->
+<!--                            </b-link>-->
+<!--                        </small>-->
+<!--                    </b-list-group-item>-->
+<!--                </b-list-group>-->
+<!--            </b-col>-->
+<!--        </b-row>-->
         <b-modal id="modal-terms"
                  title="Terms of Use"
                  size="lg"

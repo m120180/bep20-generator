@@ -1,5 +1,5 @@
 {
-  "contractName": "SimpleBEP20",
+  "contractName": "Simple",
   "abi": [
     {
       "inputs": [

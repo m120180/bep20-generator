@@ -1,23 +1,23 @@
 ---
 component: Home
-title: BEP20 Token Generator | Create BEP20 Token for FREE
-description: Create your own BEP20 Smart Contract without coding. BEP20 Generator is the easiest and fastest way to create your own BEP20 token on the Binance Smart Chain network. No coding skills are required.
+title: Token Generator | Create Your Token for FREE
+description: Create your own Smart Contract without coding. Token Generator is the easiest and fastest way to create your own token on the supported networks. No coding skills are required.
 meta:
     - property: twitter:title
-      content: BEP20 Token Generator | Create BEP20 Token for FREE
+      content: Token Generator | Create Your Token for FREE
     - property: og:title
-      content: BEP20 Token Generator | Create BEP20 Token for FREE
+      content: Token Generator | Create Your Token for FREE
     - property: twitter:description
-      content: Create your own BEP20 Smart Contract without coding. BEP20 Generator is the easiest and fastest way to create your own BEP20 token on the Binance Smart Chain network. No coding skills are required.
+      content: Create your own Smart Contract without coding. Token Generator is the easiest and fastest way to create your own token on the supported networks. No coding skills are required.
     - property: og:description
-      content: Create your own BEP20 Smart Contract without coding. BEP20 Generator is the easiest and fastest way to create your own BEP20 token on the Binance Smart Chain network. No coding skills are required.
+      content: Create your own Smart Contract without coding. Token Generator is the easiest and fastest way to create your own token on the supported networks. No coding skills are required.
     - property: og:url
       content: https://digiswap-core.github.io/bep20-generator/
 ---
 
-# BEP20 Token Generator - DAPP
+# Token Generator - DAPP
 
-Easily deploy Smart Contract for a Standard, Capped, Mintable, Burnable BEP20 Token.
+Easily deploy Smart Contract for a Standard, Capped, Mintable, Burnable Token.
 
 ## Try it
 

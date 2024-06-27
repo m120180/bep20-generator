@@ -1,5 +1,5 @@
 {
-  "contractName": "StandardBEP20",
+  "contractName": "Standard",
   "abi": [
     {
       "inputs": [

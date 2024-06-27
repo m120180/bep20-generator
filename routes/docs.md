@@ -1,17 +1,17 @@
 ---
 component: Docs
-title: BEP20 Token Documentation | BEP20 Token Generator
-description: BEP20 Token Generator Tool Documentation. Discover more details about different BEP20 Token Types, ABI, source code and analysis report.
+title: Token Documentation | Token Generator
+description: Token Generator Tool Documentation. Discover more details about different Token Types, ABI, source code and analysis report.
 permalink: /docs
 meta:
     - property: twitter:title
-      content: BEP20 Token Documentation | BEP20 Token Generator
+      content: Token Documentation | Token Generator
     - property: og:title
-      content: BEP20 Token Documentation | BEP20 Token Generator
+      content: Token Documentation | Token Generator
     - property: twitter:description
-      content: BEP20 Token Generator Tool Documentation. Discover more details about different BEP20 Token Types, ABI, source code and analysis report.
+      content: Token Generator Tool Documentation. Discover more details about different Token Types, ABI, source code and analysis report.
     - property: og:description
-      content: BEP20 Token Generator Tool Documentation. Discover more details about different BEP20 Token Types, ABI, source code and analysis report.
+      content: Token Generator Tool Documentation. Discover more details about different Token Types, ABI, source code and analysis report.
     - property: og:url
       content: https://digiswap-core.github.io/bep20-generator/docs/
 ---

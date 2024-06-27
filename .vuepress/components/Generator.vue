@@ -1,13 +1,13 @@
 <template>
     <div>
         <b-jumbotron text-variant="white"
-                     header="Create your BEP20 Token"
+                     header="Create your token"
                      class="mb-0 kingyna-gradient"
                      fluid>
             <template #lead>
-                Easily deploy Smart Contract for a Standard, Capped, Mintable, Burnable BEP20 Token.
+                Easily deploy Smart Contract for a Standard, Capped, Mintable, Burnable Token.
                 <br>
-                BEP20 Generator is the easiest and fastest way to create your own BEP20 token on the Binance Smart Chain network. No coding skills are required.
+                Token Generator is the easiest and fastest way to create your own token on the supported networks. No coding skills are required.
             </template>
         </b-jumbotron>
         <b-row id="token-generator" class="mx-0">
@@ -69,11 +69,42 @@
                             v-if="!makingTransaction">
                         <fieldset :disabled="formDisabled">
                             <b-row>
-                                <b-col md="6" lg="4">
+                                <b-col md="6" lg="6">
                                     <b-card header="Token Details"
                                             header-bg-variant="dark"
                                             header-text-variant="white"
-                                            class="mt-3">
+                                            class="mt-3 h-100">
+                                        <b-alert show variant="warning" v-if="this.isTestNet">
+                                          <strong>
+                                            You selected a TEST Network.
+                                          </strong>
+                                          <div>
+                                            To deploy on Main Network you must not select Test Net.
+                                          </div>
+                                        </b-alert>
+                                        <b-form-group
+                                            description="Choose your Network."
+                                            label="Network *"
+                                            label-for="network">
+                                          <b-form-select id="network"
+                                                         v-model="currentNetwork"
+                                                         @input="initDapp">
+                                            <option v-for="(n, k) in network.list" :value="k">{{ n.name }}
+                                            </option>
+                                          </b-form-select>
+                                        </b-form-group>
+                                        <b-form-group
+                                            description="Choose your Token Type."
+                                            label="Token Type *"
+                                            label-for="tokenType">
+                                          <b-form-select id="tokenType"
+                                                         v-model="tokenType"
+                                                         @input="loadToken">
+                                            <option v-for="(n, k) in tokenList" :value="k">
+                                              {{ n.contractName }}
+                                            </option>
+                                          </b-form-select>
+                                        </b-form-group>
                                         <ValidationProvider
                                                 name="token name"
                                                 :rules="{ required: true }"
@@ -87,7 +118,6 @@
                                                         name="tokenName"
                                                         placeholder="Your token name"
                                                         v-model.trim="token.name"
-                                                        size="lg"
                                                         :class="{'is-invalid': errors.length > 0}"
                                                         maxlength="30">
                                                 </b-form-input>
@@ -110,7 +140,6 @@
                                                         placeholder="Your token symbol"
                                                         v-model.trim="token.symbol"
                                                         @update="token.symbol = token.symbol.toUpperCase()"
-                                                        size="lg"
                                                         :class="{'is-invalid': errors.length > 0}"
                                                         maxlength="10">
                                                 </b-form-input>
@@ -134,7 +163,6 @@
                                                         type="number"
                                                         :disabled="!token.customizeDecimals"
                                                         v-model.trim="token.decimals"
-                                                        size="lg"
                                                         :class="{'is-invalid': errors.length > 0}"
                                                         min="0"
                                                         step="1">
@@ -163,7 +191,6 @@
                                                         placeholder="Your token initial supply"
                                                         type="number"
                                                         v-model.trim="token.initialBalance"
-                                                        size="lg"
                                                         v-on:update="updateCap"
                                                         :disabled="token.supplyType === '100k'"
                                                         :class="{'is-invalid': errors.length > 0}"
@@ -194,7 +221,6 @@
                                                         placeholder="Your token max supply"
                                                         type="number"
                                                         v-model.trim="token.cap"
-                                                        size="lg"
                                                         :disabled="['100k', 'Fixed'].includes(token.supplyType)"
                                                         :class="{'is-invalid': errors.length > 0}"
                                                         min="1"
@@ -207,19 +233,18 @@
                                         </ValidationProvider>
                                     </b-card>
                                 </b-col>
-                                <b-col md="6" lg="4">
+                                <b-col md="6" lg="6">
                                     <b-card header="Token Features"
                                             header-bg-variant="dark"
                                             header-text-variant="white"
-                                            class="mt-3">
+                                            class="mt-3 h-100">
                                         <b-form-group
                                                 :description="['100k', 'Fixed', 'Unlimited', 'Capped'].join(', ')"
                                                 label="Supply Type"
                                                 label-for="supplyType">
                                             <b-form-select id="supplyType"
                                                            v-model="token.supplyType"
-                                                           disabled
-                                                           size="sm">
+                                                           disabled>
                                                 <option v-for="(n) in ['100k', 'Fixed', 'Unlimited', 'Capped']" :value="n">
                                                     {{ n }}
                                                 </option>
@@ -231,8 +256,7 @@
                                                 label-for="accessType">
                                             <b-form-select id="accessType"
                                                            v-model="token.accessType"
-                                                           disabled
-                                                           size="sm">
+                                                           disabled>
                                                 <option v-for="(n) in ['None', 'Ownable', 'Role Based']" :value="n">
                                                     {{ n }}
                                                 </option>
@@ -241,7 +265,6 @@
                                         <b-form-group
                                                 description="Your Token Source Code will be automatically verified on BscScan.">
                                             <b-form-checkbox v-model="token.verified"
-                                                             size="sm"
                                                              disabled
                                                              switch>
                                                 Verified Source Code
@@ -250,7 +273,6 @@
                                         <b-form-group
                                                 description="Remove the link pointing to this page from your contract.">
                                             <b-form-checkbox v-model="token.removeCopyright"
-                                                             size="sm"
                                                              disabled
                                                              switch>
                                                 Remove Copyright
@@ -259,7 +281,6 @@
                                         <b-form-group
                                                 description="Your Token can be burnt.">
                                             <b-form-checkbox v-model="token.burnable"
-                                                             size="sm"
                                                              disabled
                                                              switch>
                                                 Burnable
@@ -268,7 +289,6 @@
                                         <b-form-group
                                                 description="You will be able to generate tokens by minting them.">
                                             <b-form-checkbox v-model="token.mintable"
-                                                             size="sm"
                                                              disabled
                                                              switch>
                                                 Mintable
@@ -277,16 +297,14 @@
                                         <b-form-group
                                                 description="Make a callback on the receiver contract.">
                                             <b-form-checkbox v-model="token.operable"
-                                                             size="sm"
                                                              disabled
                                                              switch>
                                                 Operable (ERC1363)
                                             </b-form-checkbox>
                                         </b-form-group>
                                         <b-form-group
-                                                description="Recover any BEP20 token sent into the contract for error.">
+                                                description="Recover any token sent into the contract for error.">
                                             <b-form-checkbox v-model="token.tokenRecover"
-                                                             size="sm"
                                                              disabled
                                                              switch>
                                                 Token Recover
@@ -294,98 +312,31 @@
                                         </b-form-group>
                                     </b-card>
                                 </b-col>
-                                <b-col md="12" lg="4">
-                                    <b-card header="Token Type and Network"
-                                            header-bg-variant="dark"
-                                            header-text-variant="white"
-                                            class="mt-3">
-                                        <b-form-group
-                                                description="Choose your Token Type."
-                                                label="Token Type *"
-                                                label-for="tokenType">
-                                            <b-form-select id="tokenType"
-                                                           v-model="tokenType"
-                                                           size="sm"
-                                                           @input="loadToken">
-                                                <option v-for="(n, k) in tokenList" :value="k">
-                                                    {{ n.contractName }}
-                                                </option>
-                                            </b-form-select>
-                                        </b-form-group>
-                                        <b-form-group
-                                                description="Choose your Network."
-                                                label="Network *"
-                                                label-for="network">
-                                            <b-form-select id="network"
-                                                           v-model="currentNetwork"
-                                                           size="sm"
-                                                           @input="initDapp">
-                                                <option v-for="(n, k) in network.list" :value="k">{{ n.name }}
-                                                </option>
-                                            </b-form-select>
-                                        </b-form-group>
-                                        <b-alert show variant="warning" v-if="currentNetwork !== 'mainnet'">
-                                            <strong>
-                                                You selected a TEST Network.
-                                            </strong>
-                                            <hr>
-                                            To deploy on Main Network you must select Binance Smart Chain.
-                                        </b-alert>
-                                        <b-link href="https://academy.binance.com/en/articles/connecting-metamask-to-binance-smart-chain"
-                                                target="_blank">
-                                            <small>How to connect MetaMask to Binance Smart Chain?</small>
-                                        </b-link>
-                                    </b-card>
-                                    <b-card header="Agreement"
-                                            header-bg-variant="dark"
-                                            header-text-variant="white"
-                                            class="mt-3">
-                                        <ValidationProvider
-                                                name="Token Agreement"
-                                                :rules="{ required: true }"
-                                                v-slot="{ errors }">
-                                            <b-form-group label-for="tokenAgreement">
-                                                <b-form-checkbox
-                                                        id="tokenAgreement"
-                                                        name="tokenAgreement"
-                                                        v-model="agreement"
-                                                        value="accepted"
-                                                        unchecked-value=""
-                                                        size="sm"
-                                                        :class="{'is-invalid': errors.length > 0}">
-                                                    <p>
-                                                        I have read, understood and agreed to
-                                                        BEP20 Token Generator's
-                                                        <u v-b-modal.modal-terms>Terms of Use</u>.
-                                                    </p>
-                                                </b-form-checkbox>
-                                                <small v-show="errors.length > 0" class="text-danger">
-                                                    {{ errors[0] }}
-                                                </small>
-                                            </b-form-group>
-                                        </ValidationProvider>
-                                    </b-card>
-                                    <b-card header="Transaction"
-                                            header-bg-variant="info"
-                                            header-text-variant="white"
-                                            no-body
-                                            class="mt-3">
-                                        <b-list-group flush class="payment-box">
-                                            <b-list-group-item class="d-flex justify-content-between">
+                            </b-row>
+
+                          <b-row align-v="end" class="mt-3" cols="2">
+                            <b-col>
+                              <b-card header="Transaction"
+                                      header-bg-variant="info"
+                                      header-text-variant="white"
+                                      no-body
+                                      class="mt-3">
+                                <b-list-group flush class="payment-box">
+                                  <b-list-group-item class="d-flex justify-content-between">
                                                 <span>
                                                     Commission Fee:
                                                     <b-icon-info-circle v-b-popover.v-warning.hover.top="
                                                         'Commission will be transferred directly to us through the ' +
-                                                        'BSC network as part of your payment. ' +
-                                                        'Commission will support BEP20 Token Generator to keep it ' +
+                                                        'network as part of your payment. ' +
+                                                        'Commission will support Token Generator to keep it ' +
                                                         'safe, running and constantly updated.'">
                                                         </b-icon-info-circle>
                                                 </span>
-                                                <b-badge variant="success">
-                                                    {{ web3.utils.fromWei(feeAmount, 'ether') }} BNB
-                                                </b-badge>
-                                            </b-list-group-item>
-                                            <b-list-group-item class="d-flex justify-content-between">
+                                    <b-badge variant="success">
+                                      {{ web3.utils.fromWei(feeAmount, 'ether') }} {{ this.token.chainCurrency }}
+                                    </b-badge>
+                                  </b-list-group-item>
+                                  <b-list-group-item class="d-flex justify-content-between">
                                                 <span>
                                                     Gas Fee:
                                                     <b-icon-info-circle v-b-popover.v-warning.hover.top="
@@ -398,21 +349,45 @@
                                                         'Failed transaction can\'t be refunded.'">
                                                         </b-icon-info-circle>
                                                 </span>
-                                                <b-badge variant="info">
-                                                    Variable
-                                                </b-badge>
-                                            </b-list-group-item>
-                                        </b-list-group>
-                                    </b-card>
-                                    <b-button variant="success"
-                                              size="lg"
-                                              block
-                                              type="submit"
-                                              class="mt-3 py-3 px-5 text-uppercase">
-                                        Confirm
-                                    </b-button>
-                                </b-col>
-                            </b-row>
+                                    <b-badge variant="info">
+                                      Variable
+                                    </b-badge>
+                                  </b-list-group-item>
+                                </b-list-group>
+                              </b-card>
+                            </b-col>
+                            <b-col>
+                              <ValidationProvider
+                                  name="Token Agreement"
+                                  :rules="{ required: true }"
+                                  v-slot="{ errors }">
+                                <b-form-group label-for="tokenAgreement">
+                                  <b-form-checkbox
+                                      id="tokenAgreement"
+                                      name="tokenAgreement"
+                                      v-model="agreement"
+                                      value="accepted"
+                                      unchecked-value=""
+                                      :class="{'is-invalid': errors.length > 0}">
+                                    <p>
+                                      I have read, understood and agreed to
+                                      Token Generator's
+                                      <u v-b-modal.modal-terms>Terms of Use</u>.
+                                    </p>
+                                  </b-form-checkbox>
+                                  <small v-show="errors.length > 0" class="text-danger">
+                                    {{ errors[0] }}
+                                  </small>
+                                </b-form-group>
+                              </ValidationProvider>
+                              <b-button variant="success"
+                                        block
+                                        type="submit"
+                                        class="mt-3 py-3 px-5 text-uppercase">
+                                Confirm
+                              </b-button>
+                            </b-col>
+                          </b-row>
                         </fieldset>
                     </ValidationObserver>
                 </b-card>
@@ -424,6 +399,7 @@
 <script>
   import dapp from '../mixins/dapp';
   import tokenDetails from '../mixins/tokenDetails';
+  import {networks} from "../constants/networks";
 
   export default {
     name: 'Generator',
@@ -458,11 +434,17 @@
           operable: false,
           tokenRecover: false,
           removeCopyright: false,
+          chainCurrency: ''
         },
       };
     },
+    computed: {
+      isTestNet: function () {
+        return networks?.[this.currentNetwork]?.isTestNet
+      }
+    },
     mounted () {
-      this.tokenType = this.getParam('tokenType') || 'SimpleBEP20';
+      this.tokenType = this.capitalizeFirstLetter(this.getParam('tokenType') || 'Simple');
       this.currentNetwork = this.getParam('network') || this.network.default;
       this.initDapp();
     },
@@ -490,8 +472,7 @@
             'Selected token type does not exist!',
             'danger',
           );
-
-          this.tokenType = 'SimpleBEP20';
+          this.tokenType = 'Simple';
         }
 
         this.initToken(this.tokenType);
@@ -505,7 +486,7 @@
         } catch (e) {
           console.log(e.message); // eslint-disable-line no-console
 
-          if (this.currentNetwork === 'mainnet') {
+          if (!this.isTestNet) {
             this.makeToast(
               'Warning',
               'We are having an issue with Current Network Provider. Please switch Network or try again later.',
@@ -517,7 +498,7 @@
           }
         }
 
-        if (this.currentNetwork === 'mainnet') {
+        if (!this.isTestNet) {
           this.gaSend('ViewContent', this.tokenType, '');
           this.fbtrack('ViewContent', {
             content_ids: [this.tokenType],
@@ -554,7 +535,7 @@
               this.formDisabled = true;
               this.makingTransaction = true;
 
-              if (this.currentNetwork === 'mainnet') {
+              if (!this.isTestNet) {
                 this.gaSend('AddToCart', this.tokenType, '');
                 this.fbtrack('AddToCart', {
                   content_ids: [this.tokenType], // eslint-disable-line camelcase
@@ -598,7 +579,7 @@
                   this.trx.hash = transactionHash;
                   this.trx.link = `${this.network.current.explorerLink}/tx/${this.trx.hash}`;
 
-                  if (this.currentNetwork === 'mainnet') {
+                  if (!this.isTestNet) {
                     this.gaSend('InitiateCheckout', this.tokenType, this.trx.hash);
                     this.fbtrack('InitiateCheckout');
                   }
@@ -613,7 +594,7 @@
                     'success',
                   );
 
-                  if (this.currentNetwork === 'mainnet') {
+                  if (!this.isTestNet) {
                     this.gaSend('Purchase', this.tokenType, this.token.address);
                     this.fbtrack('Purchase', {
                       value: this.web3.utils.fromWei(this.feeAmount, 'ether'),
@@ -657,6 +638,7 @@
         this.token.removeCopyright = detail.removeCopyright;
         this.token.price = detail.price;
         this.token.gas = this.web3.utils.toBN(detail.gas);
+        this.token.chainCurrency = networks?.[this.currentNetwork]?.mainCurrency || 'BITCI';
 
         this.token.decimals = detail.customizeDecimals ? this.token.decimals : 18;
       },
@@ -676,21 +658,21 @@
         const params = [name, symbol];
 
         switch (this.tokenType) {
-        case 'HelloBEP20':
+        case 'Hello':
           // nothing else
           break;
-        case 'SimpleBEP20':
+        case 'Simple':
           params.push(initialBalance);
           break;
-        case 'StandardBEP20':
-        case 'BurnableBEP20':
-        case 'UnlimitedBEP20':
-        case 'AmazingBEP20':
+        case 'Standard':
+        case 'Burnable':
+        case 'Unlimited':
+        case 'Amazing':
           params.push(decimals);
           params.push(initialBalance);
           break;
-        case 'MintableBEP20':
-        case 'CommonBEP20':
+        case 'Mintable':
+        case 'Common':
           params.push(decimals);
           params.push(cap);
           params.push(initialBalance);

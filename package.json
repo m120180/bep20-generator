@@ -1,8 +1,8 @@
 {
-  "title": "BEP20 Token Generator",
+  "title": "Token Generator",
   "name": "bep20-generator",
   "version": "1.0.0",
-  "description": "Easily deploy Smart Contract for a Standard, Capped, Mintable, Burnable BEP20 Token.",
+  "description": "Easily deploy Smart Contract for a Standard, Capped, Mintable, Burnable Token.",
   "scripts": {
     "lint": "eslint .vuepress",
     "lint:fix": "eslint .vuepress --fix",

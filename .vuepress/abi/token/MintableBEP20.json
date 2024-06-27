@@ -1,5 +1,5 @@
 {
-  "contractName": "MintableBEP20",
+  "contractName": "Mintable",
   "abi": [
     {
       "inputs": [

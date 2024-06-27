@@ -3,7 +3,7 @@ export default {
     return {
       tokenDetails: [
         {
-          name: 'HelloBEP20',
+          name: 'Hello',
           version: '2.0.0',
           standard: true,
           verified: true,
@@ -21,7 +21,7 @@ export default {
           gas: 1330639,
         },
         {
-          name: 'SimpleBEP20',
+          name: 'Simple',
           version: '2.0.0',
           standard: true,
           verified: true,
@@ -39,7 +39,7 @@ export default {
           gas: 1333276,
         },
         {
-          name: 'StandardBEP20',
+          name: 'Standard',
           version: '2.0.0',
           standard: true,
           verified: true,
@@ -57,7 +57,7 @@ export default {
           gas: 1260139,
         },
         {
-          name: 'BurnableBEP20',
+          name: 'Burnable',
           version: '2.0.0',
           standard: true,
           verified: true,
@@ -75,7 +75,7 @@ export default {
           gas: 1444650,
         },
         {
-          name: 'MintableBEP20',
+          name: 'Mintable',
           version: '2.0.0',
           standard: true,
           verified: true,
@@ -93,7 +93,7 @@ export default {
           gas: 1524151,
         },
         {
-          name: 'CommonBEP20',
+          name: 'Common',
           version: '2.0.0',
           standard: true,
           verified: true,
@@ -111,7 +111,7 @@ export default {
           gas: 1708581,
         },
         {
-          name: 'UnlimitedBEP20',
+          name: 'Unlimited',
           version: '2.0.0',
           standard: true,
           verified: true,
@@ -129,7 +129,7 @@ export default {
           gas: 1637163,
         },
         {
-          name: 'AmazingBEP20',
+          name: 'Amazing',
           version: '2.0.0',
           standard: true,
           verified: true,

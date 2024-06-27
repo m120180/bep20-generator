@@ -1,16 +1,17 @@
 import config from '../config';
 import utils from './utils';
 
-import HelloBEP20 from '../abi/token/HelloBEP20.json';
-import SimpleBEP20 from '../abi/token/SimpleBEP20.json';
-import StandardBEP20 from '../abi/token/StandardBEP20.json';
-import BurnableBEP20 from '../abi/token/BurnableBEP20.json';
-import MintableBEP20 from '../abi/token/MintableBEP20.json';
-import CommonBEP20 from '../abi/token/CommonBEP20.json';
-import UnlimitedBEP20 from '../abi/token/UnlimitedBEP20.json';
-import AmazingBEP20 from '../abi/token/AmazingBEP20.json';
+import Hello from '../abi/token/HelloBEP20.json';
+import Simple from '../abi/token/SimpleBEP20.json';
+import Standard from '../abi/token/StandardBEP20.json';
+import Burnable from '../abi/token/BurnableBEP20.json';
+import Mintable from '../abi/token/MintableBEP20.json';
+import Common from '../abi/token/CommonBEP20.json';
+import Unlimited from '../abi/token/UnlimitedBEP20.json';
+import Amazing from '../abi/token/AmazingBEP20.json';
 
 import ServiceReceiverArtifact from '../abi/service/ServiceReceiver.json';
+import {networks} from "../constants/networks";
 
 export default {
   mixins: [
@@ -31,31 +32,18 @@ export default {
           1907: 'mainnet',
           1908: 'testnet',
         },
-        list: {
-          mainnet: {
-            web3Provider: 'https://rpc.bitci.com/',
-            explorerLink: 'https://bitciexplorer.com',
-            id: 1907,
-            name: 'Bitcichain',
-          },
-          testnet: {
-            web3Provider: 'https://testnet.bitcichain.com/',
-            explorerLink: 'https://testnet.bitciexplorer.com',
-            id: 1908,
-            name: 'Bitcichain - Testnet',
-          },
-        },
+        list: networks,
       },
       serviceReceiver: config.serviceReceiver,
       tokenList: {
-        HelloBEP20,
-        SimpleBEP20,
-        StandardBEP20,
-        BurnableBEP20,
-        MintableBEP20,
-        CommonBEP20,
-        UnlimitedBEP20,
-        AmazingBEP20,
+        Hello,
+        Simple,
+        Standard,
+        Burnable,
+        Mintable,
+        Common,
+        Unlimited,
+        Amazing,
       },
       contracts: {
         token: null,

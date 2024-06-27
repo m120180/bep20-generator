@@ -1,13 +1,13 @@
 <template>
     <div>
         <b-jumbotron text-variant="white"
-                     header="BEP20 Token Documentation"
+                     header="Token Documentation"
                      class="mb-0 flickr-gradient"
                      fluid>
             <template #lead>
-                BEP20 Token Generator Tool Documentation.
+              Token Generator Tool Documentation.
                 <br>
-                Discover more details about different BEP20 Token Types, ABI, source code and analysis report.
+                Discover more details about different Token Types, ABI, source code and analysis report.
             </template>
         </b-jumbotron>
         <b-row id="token-docs" class="mx-0">
@@ -124,7 +124,7 @@
                                         <div>
                                             Verified Source Code<br>
                                             <small class="text-muted">
-                                                Your Token Source Code will be automatically verified on BscScan.
+                                                Your Token Source Code will be automatically verified on chain scanner.
                                             </small>
                                         </div>
                                         <ui--checkmark :value="token.verified"></ui--checkmark>
@@ -219,7 +219,7 @@
                                         <div>
                                             Token Recover<br>
                                             <small class="text-muted">
-                                                It allows the contract owner to recover any BEP20 token sent into the
+                                                It allows the contract owner to recover any token sent into the
                                                 contract for error.
                                             </small>
                                         </div>
@@ -287,12 +287,12 @@
         </b-row>
         <b-row class="bg-light text-dark mx-0">
             <b-col lg="10" offset-lg="1" class="mb-3 text-center">
-                <h2 class="pt-5 mb-4 font-weight-lighter text-dark">Ready to deploy your BEP20 Token?</h2>
+                <h2 class="pt-5 mb-4 font-weight-lighter text-dark">Ready to deploy your token?</h2>
                 <p class="font-weight-light">
-                    Try building your BEP20 Token in less than a minute. You can try on Test Network before to go live.
+                    Try building your token in less than a minute. You can try on Test Network before to go live.
                 </p>
                 <b-button to="/create-token/" size="lg" variant="success" class="my-5 py-3 px-5 text-uppercase">
-                    Create BEP20 Token
+                    Create Your Token
                 </b-button>
             </b-col>
         </b-row>
@@ -313,19 +313,22 @@
       return {
         loading: true,
         currentNetwork: null,
-        tokenType: 'SimpleBEP20',
+        tokenType: 'Simple',
         token: {},
       };
     },
     computed: {
+      contractName: function () {
+        return `${this.contracts.token.contractName}`;
+      },
       controlFlow: function () {
-        return `https://github.com/DigiSwap-Core/bep20-generator/blob/v${this.token.version}/analysis/control-flow/${this.contracts.token.contractName}.png`;
+        return `https://github.com/DigiSwap-Core/bep20-generator/blob/v${this.token.version}/analysis/control-flow/${this.contractName}.png`;
       },
       inheritanceTree: function () {
-        return `https://github.com/DigiSwap-Core/bep20-generator/blob/v${this.token.version}/analysis/inheritance-tree/${this.contracts.token.contractName}.png`;
+        return `https://github.com/DigiSwap-Core/bep20-generator/blob/v${this.token.version}/analysis/inheritance-tree/${this.contractName}.png`;
       },
       uml: function () {
-        return `https://github.com/DigiSwap-Core/bep20-generator/blob/v${this.token.version}/analysis/uml/${this.contracts.token.contractName}.svg`;
+        return `https://github.com/DigiSwap-Core/bep20-generator/blob/v${this.token.version}/analysis/uml/${this.contractName}.svg`;
       },
     },
     mounted () {

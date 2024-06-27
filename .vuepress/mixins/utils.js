@@ -55,5 +55,9 @@ export default {
         console.log('fb track', { eventName: eventName, eventParams: (eventParams || {}) });
       }
     },
+    capitalizeFirstLetter(string) {
+      if (!string) return string
+      return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
+    }
   },
 };
