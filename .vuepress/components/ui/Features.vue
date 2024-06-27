@@ -13,9 +13,9 @@
         <b-card-group deck>
             <b-card class="mb-3" sub-title="Detailed">
                 <b-card-text>
-                    Your Token will be fully compliant with the BEP20 definition and
-                    compatible with any BEP20 wallet all around the world.
-                    It will have a name, a symbol and a decimals amount.
+                  Your token will be fully compatible with the network definition you create and
+                  will be compatible with any wallet using the same network anywhere in the world.
+                  It will have a name, a symbol and a decimal amount.
                 </b-card-text>
             </b-card>
             <b-card class="mb-3" sub-title="Capped">
@@ -56,14 +56,14 @@
         <b-card-group deck>
             <b-card class="mb-3" sub-title="Operable Token (ERC1363)">
                 <b-card-text>
-                    The Operable Token is a BEP20 compatible Token that can make a
-                    callback on the receiver contract to notify token transfers or token approvals.
+                  The Operable Token is a compatible Token that can make a
+                  callback on the receiver contract to notify token transfers or token approvals.
                 </b-card-text>
             </b-card>
             <b-card class="mb-3" sub-title="Token Recover">
                 <b-card-text>
                     There are lots of tokens lost forever into Smart Contracts.
-                    It allows the contract owner to recover any BEP20 token sent into the contract for error.
+                  It allows the contract owner to recover an token sent into the contract for error.
                 </b-card-text>
             </b-card>
         </b-card-group>
@@ -72,10 +72,10 @@
                 <b-alert class="mb-3" variant="warning" show>
                     <h4 class="alert-heading">Copyright</h4>
                     <p>
-                        Deploying HelloBEP20 for FREE or SimpleBEP20, a link pointing to this page will be added to
+                        Deploying Hello or Simple contract for FREE, a link pointing to this page will be added to
                         your contract.
-                        Your Token will be fully compliant with the BEP20 Standard and you can use it without issues.
-                        It is only a little credit to advertise BEP20 Token Generator.
+                        Your token will be fully compatible with the standard of the network you are creating and you will be able to use it seamlessly.
+                        It is only a little credit to advertis Token Generator.
                         You can remove it by choosing an advanced Token type.
                     </p>
                 </b-alert>

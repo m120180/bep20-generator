@@ -520,8 +520,8 @@
         if (this.currentNetwork === 'mainnet') {
           this.gaSend('ViewContent', this.tokenType, '');
           this.fbtrack('ViewContent', {
-            content_ids: [this.tokenType], // eslint-disable-line camelcase
-            content_type: 'product', // eslint-disable-line camelcase
+            content_ids: [this.tokenType],
+            content_type: 'product',
           });
         }
 

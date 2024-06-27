@@ -3,18 +3,18 @@
         <b-row>
             <b-col>
                 <b-card bg-variant="light" class="mb-4">
-                    <h3 class="font-weight-light">BEP20 Token Generator</h3>
+                    <h3 class="font-weight-light">Token Generator</h3>
                     <p class="font-weight-light">
-                        Create your own BEP20 Smart Contract without coding. BEP20 Generator is the easiest and fastest way to create your own BEP20 token on the Binance Smart Chain network. No coding skills are required.
+                        Create your own Smart Contract without coding. Token Generator is the easiest and fastest way to create your own token on the supported networks. No coding skills are required.
                     </p>
-                    <hr class="my-4">
-                    <h6 class="font-weight-light">The BEP20 Standard</h6>
-                    <p class="font-weight-light">
-                        BEP20 defines the implementation of APIs for token smart contracts. It is proposed by deriving
-                        the ERC20 protocol of Ethereum and provides the basic functionality to transfer tokens,
-                        allow tokens to be approved so they can be spent by another on-chain third party, and transfer
-                        between Binance Chain and Binance Smart Chain.
-                    </p>
+<!--                    <hr class="my-4">-->
+<!--                    <h6 class="font-weight-light">The BEP20 Standard</h6>-->
+<!--                    <p class="font-weight-light">-->
+<!--                        BEP20 defines the implementation of APIs for token smart contracts. It is proposed by deriving-->
+<!--                        the ERC20 protocol of Ethereum and provides the basic functionality to transfer tokens,-->
+<!--                        allow tokens to be approved so they can be spent by another on-chain third party, and transfer-->
+<!--                        between Binance Chain and Binance Smart Chain.-->
+<!--                    </p>-->
                 </b-card>
             </b-col>
         </b-row>
@@ -146,13 +146,12 @@
                             <b-collapse id="what-is-operable" class="p-4" accordion="features-accordion">
                                 <b-card-text itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                                     <span itemprop="text">
-                                        There is no way to execute code after a BEP-20 transfer or approval (i.e.
+                                        There is no way to execute code after a transfer or approval (i.e.
                                         making a payment), so to make an action it is required to send another
                                         transaction and pay GAS twice. Operable Token makes token payments easier and
                                         working without the use of any other listener. It allows to make a callback
                                         after a transfer or approval in a single transaction.<br>
-                                        There are many proposed uses of Ethereum Smart Contracts that can accept BEP-20
-                                        payments.<br>
+                                        There are many proposed uses of Smart Contracts that can accept payments.<br>
                                         Examples could be:
                                         <ul>
                                             <li>
@@ -168,13 +167,13 @@
                                                 making subscriptions
                                             </li>
                                         </ul>
-                                        Operable Token is derived by ERC1363.
+<!--                                        Operable Token is derived by ERC1363.-->
                                     </span>
                                 </b-card-text>
-                                <b-link href="https://eips.ethereum.org/EIPS/eip-1363"
-                                        class="card-link" target="_blank">
-                                    Discover ERC1363
-                                </b-link>
+<!--                                <b-link href="https://eips.ethereum.org/EIPS/eip-1363"-->
+<!--                                        class="card-link" target="_blank">-->
+<!--                                    Discover ERC1363-->
+<!--                                </b-link>-->
                             </b-collapse>
                         </b-card>
                         <b-card no-body
@@ -193,18 +192,17 @@
                             <b-collapse id="what-is-token-recover" class="p-4" accordion="features-accordion">
                                 <b-card-text itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                                     <span itemprop="text">
-                                        There are lots of tokens lost forever into Smart Contracts. Each Ethereum
-                                        contract is a potential token trap for BEP20 tokens. They can't be recovered so
-                                        it means money losses for end users.<br>
-                                        TokenRecover allows the contract owner to recover any BEP20 token sent into the
+                                        There are lots of tokens lost forever into Smart Contracts. Each contract is a potential token trap for tokens.
+                                        They can't be recovered so it means money losses for end users.<br>
+                                        TokenRecover allows the contract owner to recover any token sent into the
                                         contract for error.
-                                        This behaviour is derived by ERC20 Token Recover.
+<!--                                        This behaviour is derived by ERC20 Token Recover.-->
                                     </span>
                                 </b-card-text>
-                                <b-link href="https://digiswap-core.github.io/eth-token-recover/"
-                                        class="card-link" target="_blank">
-                                    Discover Token Recover
-                                </b-link>
+<!--                                <b-link href="https://digiswap-core.github.io/eth-token-recover/"-->
+<!--                                        class="card-link" target="_blank">-->
+<!--                                    Discover Token Recover-->
+<!--                                </b-link>-->
                             </b-collapse>
                         </b-card>
                         <b-card no-body
@@ -216,19 +214,18 @@
                                    @click.prevent
                                    class="btn-block text-reset text-decoration-none">
                                     <span itemprop="name">
-                                        Will be having BEP20 Generator Copyright an issue?
+                                        Will be having Token Generator Copyright an issue?
                                     </span>
                                 </a>
                             </b-card-header>
                             <b-collapse id="will-copyright-be-an-issue" class="p-4" accordion="features-accordion">
                                 <b-card-text itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                                     <span itemprop="text">
-                                        No. BEP20 Generator code is released under MIT License so, using TestERC20 for
-                                        FREE or SimpleBEP20, you will have a view method in your Smart Contract named
+                                        No. Token Generator code is released under MIT License so,using Test or Simple for FREE,
+                                        you will have a view method in your Smart Contract named
                                         "generator" showing a link to this page.
                                         You will also have a disclaimer in source code.
-                                        It is not an issue for you because of your Token will be fully compliant with
-                                        BEP20 definition.
+                                        This is not a problem for you, as your token will be fully compatible with the network definition you will create.
                                         You can remove it by choosing a token type with remove Copyright feature.
                                     </span>
                                 </b-card-text>
@@ -333,8 +330,8 @@
                             <b-collapse id="which-wallet-support" class="p-4" accordion="bep20-accordion">
                                 <b-card-text itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                                     <span itemprop="text">
-                                        Your Token will be a fully BEP20 compatible token. Any BEP20 wallet will support
-                                        your Token.
+                                        Your token will be fully compatible with the network you will create.
+                                        Any wallet with the same network will be your token.
                                     </span>
                                 </b-card-text>
                             </b-collapse>
@@ -425,68 +422,68 @@
                        href="#about-bsc"
                        @click.prevent
                        class="btn-block text-reset text-decoration-none">
-                        <b-icon-caret-down-fill></b-icon-caret-down-fill> Binance Smart Chain and Ecosystem
+                        <b-icon-caret-down-fill></b-icon-caret-down-fill> Smart Chain and Ecosystem
                     </a>
                 </h5>
                 <b-collapse id="about-bsc" accordion="main-accordion" class="mt-4">
                     <div class="accordion mb-3" role="tablist">
-                        <b-card no-body
-                                bg-variant="light"
-                                itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                            <b-card-header role="tab">
-                                <a v-b-toggle
-                                   href="#what-is-bsc"
-                                   @click.prevent
-                                   class="btn-block text-reset text-decoration-none">
-                                    <span itemprop="name">
-                                        What is Binance Smart Chain?
-                                    </span>
-                                </a>
-                            </b-card-header>
-                            <b-collapse id="what-is-bsc" class="p-4" accordion="bsc-accordion">
-                                <b-card-text itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                    <span itemprop="text">
-                                        Binance Chain was launched by Binance in April 2019. Its primary focus is to
-                                        facilitate fast, decentralized (or non-custodial) trading.<br>
-                                        Binance Smart Chain (BSC) is best described as a blockchain that runs in
-                                        parallel to the Binance Chain. Unlike Binance Chain, BSC boasts smart contract
-                                        functionality and compatibility with the Ethereum Virtual Machine (EVM).
-                                        The design goal here was to leave the high throughput of Binance Chain intact
-                                        while introducing smart contracts into its ecosystem.
-                                    </span>
-                                </b-card-text>
-                                <b-link href="https://docs.binance.org/smart-chain/guides/bsc-intro.html"
-                                        class="card-link" target="_blank">
-                                    BSC official website
-                                </b-link>
-                            </b-collapse>
-                        </b-card>
-                        <b-card no-body
-                                bg-variant="light"
-                                itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                            <b-card-header role="tab">
-                                <a v-b-toggle
-                                   href="#explore-bsc"
-                                   @click.prevent
-                                   class="btn-block text-reset text-decoration-none">
-                                    <span itemprop="name">
-                                        How to explore the BSC blockchain?
-                                    </span>
-                                </a>
-                            </b-card-header>
-                            <b-collapse id="explore-bsc" class="p-4" accordion="bsc-accordion">
-                                <b-card-text itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                    <span itemprop="text">
-                                        A Block Explorer is basically a search engine that allows users to easily
-                                        lookup, confirm and validate transactions that have taken place on the Binance
-                                        Smart Chain.
-                                    </span>
-                                </b-card-text>
-                                <b-link href="https://bscscan.com" class="card-link" target="_blank">
-                                    BscScan
-                                </b-link>
-                            </b-collapse>
-                        </b-card>
+<!--                        <b-card no-body-->
+<!--                                bg-variant="light"-->
+<!--                                itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">-->
+<!--                            <b-card-header role="tab">-->
+<!--                                <a v-b-toggle-->
+<!--                                   href="#what-is-bsc"-->
+<!--                                   @click.prevent-->
+<!--                                   class="btn-block text-reset text-decoration-none">-->
+<!--                                    <span itemprop="name">-->
+<!--                                        What is Binance Smart Chain?-->
+<!--                                    </span>-->
+<!--                                </a>-->
+<!--                            </b-card-header>-->
+<!--                            <b-collapse id="what-is-bsc" class="p-4" accordion="bsc-accordion">-->
+<!--                                <b-card-text itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">-->
+<!--                                    <span itemprop="text">-->
+<!--                                        Binance Chain was launched by Binance in April 2019. Its primary focus is to-->
+<!--                                        facilitate fast, decentralized (or non-custodial) trading.<br>-->
+<!--                                        Binance Smart Chain (BSC) is best described as a blockchain that runs in-->
+<!--                                        parallel to the Binance Chain. Unlike Binance Chain, BSC boasts smart contract-->
+<!--                                        functionality and compatibility with the Ethereum Virtual Machine (EVM).-->
+<!--                                        The design goal here was to leave the high throughput of Binance Chain intact-->
+<!--                                        while introducing smart contracts into its ecosystem.-->
+<!--                                    </span>-->
+<!--                                </b-card-text>-->
+<!--                                <b-link href="https://docs.binance.org/smart-chain/guides/bsc-intro.html"-->
+<!--                                        class="card-link" target="_blank">-->
+<!--                                    BSC official website-->
+<!--                                </b-link>-->
+<!--                            </b-collapse>-->
+<!--                        </b-card>-->
+<!--                        <b-card no-body-->
+<!--                                bg-variant="light"-->
+<!--                                itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">-->
+<!--                            <b-card-header role="tab">-->
+<!--                                <a v-b-toggle-->
+<!--                                   href="#explore-bsc"-->
+<!--                                   @click.prevent-->
+<!--                                   class="btn-block text-reset text-decoration-none">-->
+<!--                                    <span itemprop="name">-->
+<!--                                        How to explore the BSC blockchain?-->
+<!--                                    </span>-->
+<!--                                </a>-->
+<!--                            </b-card-header>-->
+<!--                            <b-collapse id="explore-bsc" class="p-4" accordion="bsc-accordion">-->
+<!--                                <b-card-text itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">-->
+<!--                                    <span itemprop="text">-->
+<!--                                        A Block Explorer is basically a search engine that allows users to easily-->
+<!--                                        lookup, confirm and validate transactions that have taken place on the Binance-->
+<!--                                        Smart Chain.-->
+<!--                                    </span>-->
+<!--                                </b-card-text>-->
+<!--                                <b-link href="https://bscscan.com" class="card-link" target="_blank">-->
+<!--                                    BscScan-->
+<!--                                </b-link>-->
+<!--                            </b-collapse>-->
+<!--                        </b-card>-->
                         <b-card no-body
                                 bg-variant="light"
                                 itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
@@ -542,39 +539,39 @@
                                 </b-card-text>
                             </b-collapse>
                         </b-card>
-                        <b-card no-body
-                                bg-variant="light"
-                                itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                            <b-card-header role="tab">
-                                <a v-b-toggle
-                                   href="#what-is-a-bep20-token"
-                                   @click.prevent
-                                   class="btn-block text-reset text-decoration-none">
-                                    <span itemprop="name">
-                                        What is a BEP20 token?
-                                    </span>
-                                </a>
-                            </b-card-header>
-                            <b-collapse id="what-is-a-bep20-token" class="p-4" accordion="bsc-accordion">
-                                <b-card-text itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                    <span itemprop="text">
-                                        BEP-20 is a token standard on Binance Smart Chain that extends ERC-20, the most
-                                        common Ethereum token standard. You can think of it as a blueprint for tokens
-                                        that defines how they can be spent, who can spend them, and other rules for
-                                        their usage. Due to its similarity to Binance Chain’s BEP-2 and Ethereum’s
-                                        ERC-20, it’s compatible with both.<br>
-                                        BEP-20 was conceived as a technical specification for Binance Smart Chain,
-                                        with the goal of providing a flexible format for developers to launch a
-                                        range of different tokens. These could represent anything from shares in a
-                                        business to dollars stored in a bank vault (i.e., a stablecoin).
-                                    </span>
-                                </b-card-text>
-                                <b-link href="https://github.com/binance-chain/BEPs/blob/master/BEP20.md"
-                                        class="card-link" target="_blank">
-                                    BEP20 Technical specification
-                                </b-link>
-                            </b-collapse>
-                        </b-card>
+<!--                        <b-card no-body-->
+<!--                                bg-variant="light"-->
+<!--                                itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">-->
+<!--                            <b-card-header role="tab">-->
+<!--                                <a v-b-toggle-->
+<!--                                   href="#what-is-a-bep20-token"-->
+<!--                                   @click.prevent-->
+<!--                                   class="btn-block text-reset text-decoration-none">-->
+<!--                                    <span itemprop="name">-->
+<!--                                        What is a BEP20 token?-->
+<!--                                    </span>-->
+<!--                                </a>-->
+<!--                            </b-card-header>-->
+<!--                            <b-collapse id="what-is-a-bep20-token" class="p-4" accordion="bsc-accordion">-->
+<!--                                <b-card-text itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">-->
+<!--                                    <span itemprop="text">-->
+<!--                                        BEP-20 is a token standard on Binance Smart Chain that extends ERC-20, the most-->
+<!--                                        common Ethereum token standard. You can think of it as a blueprint for tokens-->
+<!--                                        that defines how they can be spent, who can spend them, and other rules for-->
+<!--                                        their usage. Due to its similarity to Binance Chain’s BEP-2 and Ethereum’s-->
+<!--                                        ERC-20, it’s compatible with both.<br>-->
+<!--                                        BEP-20 was conceived as a technical specification for Binance Smart Chain,-->
+<!--                                        with the goal of providing a flexible format for developers to launch a-->
+<!--                                        range of different tokens. These could represent anything from shares in a-->
+<!--                                        business to dollars stored in a bank vault (i.e., a stablecoin).-->
+<!--                                    </span>-->
+<!--                                </b-card-text>-->
+<!--                                <b-link href="https://github.com/binance-chain/BEPs/blob/master/BEP20.md"-->
+<!--                                        class="card-link" target="_blank">-->
+<!--                                    BEP20 Technical specification-->
+<!--                                </b-link>-->
+<!--                            </b-collapse>-->
+<!--                        </b-card>-->
                         <b-card no-body
                                 bg-variant="light"
                                 itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
@@ -591,72 +588,71 @@
                             <b-collapse id="what-is-gas" class="p-4" accordion="bsc-accordion">
                                 <b-card-text itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                                     <span itemprop="text">
-                                        "Gas" is the name for a special unit used in BSC. It measures how much
-                                        "work" an action or set of actions takes to perform.<br>
-                                        Every operation that can be performed by a transaction or contract on the
-                                        BSC platform costs a certain number of gas, with operations that require
-                                        more computational resources costing more gas than operations that require few
-                                        computational resources.<br>
-                                        The reason gas is important is that it helps to ensure an appropriate fee is
-                                        being paid by transactions submitted to the network. By requiring that a
-                                        transaction pay for each operation it performs (or causes a contract to
-                                        perform), we ensure that network doesn't become bogged down with performing
-                                        a lot of intensive work that isn't valuable to anyone.
+                                      It measures how much "work" an action or set of actions takes to perform.
+                                      Every operation that can be performed by a transaction or contract on the platform costs a certain number of gas,
+                                      with operations that require more computational resources costing more gas than operations that require few
+                                      computational resources.
+                                      <br>
+                                      The reason gas is important is that it helps to ensure an appropriate fee is
+                                      being paid by transactions submitted to the network. By requiring that a
+                                      transaction pay for each operation it performs (or causes a contract to
+                                      perform), we ensure that network doesn't become bogged down with performing
+                                      a lot of intensive work that isn't valuable to anyone.
                                     </span>
                                 </b-card-text>
-                                <b-link href="https://bscscan.com/gastracker"
-                                        class="card-link" target="_blank">
-                                    BscScan Gas tracker
-                                </b-link>
+<!--                                <b-link href="https://bscscan.com/gastracker"-->
+<!--                                        class="card-link" target="_blank">-->
+<!--                                    BscScan Gas tracker-->
+<!--                                </b-link>-->
                             </b-collapse>
                         </b-card>
-                        <b-card no-body
-                                bg-variant="light"
-                                itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                            <b-card-header role="tab">
-                                <a v-b-toggle
-                                   href="#connect-metamask-to-bsc"
-                                   @click.prevent
-                                   class="btn-block text-reset text-decoration-none">
-                                    <span itemprop="name">
-                                        How to connect MetaMask to Binance Smart Chain
-                                    </span>
-                                </a>
-                            </b-card-header>
-                            <b-collapse id="connect-metamask-to-bsc" class="p-4" accordion="bsc-accordion">
-                                <b-card-text itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                                    <span itemprop="text">
-                                        You need to access the <b>Settings</b> to point the wallet towards Binance Smart
-                                        Chain nodes. On the Settings page, locate the <b>Networks</b> menu.
-                                        Click <b>Add Network</b> in the top-right corner to manually add the Binance
-                                        Smart Chain one.<br>
-                                        There are two networks we can use here:
-                                        the testnet or the mainnet. Below are the parameters to fill in for each.
-                                        <br><br>
-                                        <b>Mainnet (This is the one you are probably looking for)</b>
-                                        <ul>
-                                            <li>Network Name: Binance Smart Chain</li>
-                                            <li>New RPC URL: https://bsc-dataseed.binance.org/</li>
-                                            <li>ChainID: 56</li>
-                                            <li>Symbol: BNB</li>
-                                            <li>Block Explorer URL: https://bscscan.com</li>
-                                        </ul>
-                                        <b>Testnet</b>
-                                        <ul>
-                                            <li>Network Name: Binance Smart Chain - Testnet</li>
-                                            <li>New RPC URL: https://data-seed-prebsc-1-s1.binance.org:8545/</li>
-                                            <li>ChainID: 97</li>
-                                            <li>Symbol: BNB</li>
-                                            <li>Block Explorer URL: https://testnet.bscscan.com</li>
-                                        </ul>
-                                    </span>
-                                </b-card-text>
-                                <b-link href="https://academy.binance.com/en/articles/connecting-metamask-to-binance-smart-chain"
-                                        class="card-link" target="_blank">
-                                    More details
-                                </b-link>
-                            </b-collapse>
-                        </b-card>
+<!--                        <b-card no-body-->
+<!--                                bg-variant="light"-->
+<!--                                itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">-->
+<!--                            <b-card-header role="tab">-->
+<!--                                <a v-b-toggle-->
+<!--                                   href="#connect-metamask-to-bsc"-->
+<!--                                   @click.prevent-->
+<!--                                   class="btn-block text-reset text-decoration-none">-->
+<!--                                    <span itemprop="name">-->
+<!--                                        How to connect MetaMask to Binance Smart Chain-->
+<!--                                    </span>-->
+<!--                                </a>-->
+<!--                            </b-card-header>-->
+<!--                            <b-collapse id="connect-metamask-to-bsc" class="p-4" accordion="bsc-accordion">-->
+<!--                                <b-card-text itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">-->
+<!--                                    <span itemprop="text">-->
+<!--                                        You need to access the <b>Settings</b> to point the wallet towards Binance Smart-->
+<!--                                        Chain nodes. On the Settings page, locate the <b>Networks</b> menu.-->
+<!--                                        Click <b>Add Network</b> in the top-right corner to manually add the Binance-->
+<!--                                        Smart Chain one.<br>-->
+<!--                                        There are two networks we can use here:-->
+<!--                                        the testnet or the mainnet. Below are the parameters to fill in for each.-->
+<!--                                        <br><br>-->
+<!--                                        <b>Mainnet (This is the one you are probably looking for)</b>-->
+<!--                                        <ul>-->
+<!--                                            <li>Network Name: Binance Smart Chain</li>-->
+<!--                                            <li>New RPC URL: https://bsc-dataseed.binance.org/</li>-->
+<!--                                            <li>ChainID: 56</li>-->
+<!--                                            <li>Symbol: BNB</li>-->
+<!--                                            <li>Block Explorer URL: https://bscscan.com</li>-->
+<!--                                        </ul>-->
+<!--                                        <b>Testnet</b>-->
+<!--                                        <ul>-->
+<!--                                            <li>Network Name: Binance Smart Chain - Testnet</li>-->
+<!--                                            <li>New RPC URL: https://data-seed-prebsc-1-s1.binance.org:8545/</li>-->
+<!--                                            <li>ChainID: 97</li>-->
+<!--                                            <li>Symbol: BNB</li>-->
+<!--                                            <li>Block Explorer URL: https://testnet.bscscan.com</li>-->
+<!--                                        </ul>-->
+<!--                                    </span>-->
+<!--                                </b-card-text>-->
+<!--                                <b-link href="https://academy.binance.com/en/articles/connecting-metamask-to-binance-smart-chain"-->
+<!--                                        class="card-link" target="_blank">-->
+<!--                                    More details-->
+<!--                                </b-link>-->
+<!--                            </b-collapse>-->
+<!--                        </b-card>-->
                     </div>
                 </b-collapse>
             </b-col>
@@ -666,14 +662,14 @@
                 <b-alert show variant="warning" class="mt-4">
                     <h4 class="alert-heading">DISCLAIMER</h4>
                     <p>
-                        BEP20 Token Generator and its author are free of any liability regarding Tokens built using
-                        this App, and the use that is made of them. Tokens built on BEP20 Token Generator, their
+                        Token Generator and its author are free of any liability regarding Tokens built using
+                        this App, and the use that is made of them. Tokens built on Token Generator, their
                         projects, their teams, their use of Token (as well as anything related to Token) are in no way
-                        connected to BEP20 Token Generator or its author.
+                        connected to Token Generator or its author.
                     </p>
                     <hr>
                     <small>
-                        BEP20 Token Generator's code is provided under MIT License. Anyone can use it as per their
+                        Token Generator's code is provided under MIT License. Anyone can use it as per their
                         needs. The App's purpose is to make people able to tokenize their ideas without coding or
                         paying large amounts for it. Source code is public and well tested and continuously updated to
                         reduce risk of bugs and introduce language optimizations. Anyway the purchase of tokens

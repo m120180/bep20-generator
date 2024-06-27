@@ -9,13 +9,13 @@
 
         <b-collapse is-nav id="nav_collapse">
             <b-navbar-nav>
-                <b-nav-item to="/create-token/" :active="page === 'Generator'">Create BEP20 Token</b-nav-item>
+                <b-nav-item to="/create-token/" :active="page === 'Generator'">Create Your Token</b-nav-item>
             </b-navbar-nav>
 
             <b-navbar-nav class="ml-auto">
                 <b-nav-item to="/" :active="page === 'Home'">Home</b-nav-item>
                 <b-nav-item to="/docs/" :active="page === 'Docs'">Docs</b-nav-item>
-                <b-nav-item target="_blank" href="https://digiswap-core.github.io/bep20-generator/"><small>Blog</small></b-nav-item>
+<!--                <b-nav-item target="_blank" href="https://digiswap-core.github.io/bep20-generator/"><small>Blog</small></b-nav-item>-->
             </b-navbar-nav>
 
         </b-collapse>
