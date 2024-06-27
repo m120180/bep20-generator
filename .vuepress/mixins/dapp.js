@@ -51,6 +51,14 @@ export default {
       },
     };
   },
+  computed: {
+    feesByNetwork() {
+      return this.network.current?.fees;
+    },
+    chainCurrency() {
+      return this.network.current?.mainCurrency
+    }
+  },
   methods: {
     async initWeb3 (network, checkWeb3) {
       if (!Object.prototype.hasOwnProperty.call(this.network.list, network)) {

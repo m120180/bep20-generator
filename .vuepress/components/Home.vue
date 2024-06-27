@@ -37,8 +37,17 @@
         </b-row>
         <b-row id="pricing" class="aqua-gradient mx-0">
             <b-col lg="12" xl="10" offset-xl="1" class="py-5">
-                <h2 class="p-5 font-weight-lighter text-center text-light">Pricing</h2>
-                <ui--pricing-table></ui--pricing-table>
+                <h2 class="pt-5 font-weight-lighter text-center text-light">Pricing</h2>
+              <b-form-group
+                  label-for="network" class="d-flex flex-column align-items-center">
+                <b-form-select id="network"
+                               v-model="currentNetwork"
+                               @input="onChangeNetwork">
+                  <option v-for="(n, k) in network.list" :value="k">{{ n.name }}
+                  </option>
+                </b-form-select>
+              </b-form-group>
+                <ui--pricing-table :fees="feesByNetwork" :currencyCode="chainCurrency"/>
             </b-col>
         </b-row>
         <b-row class="bg-dark text-white mx-0">
@@ -106,7 +115,23 @@
 </template>
 
 <script>
+  import dapp from "../mixins/dapp";
+
   export default {
     name: 'Home',
+    mixins: [dapp],
+    data() {
+      return {
+        currentNetwork: '',
+      }
+    },
+    async mounted() {
+      this.currentNetwork = this.network.default;
+    },
+    methods: {
+      async onChangeNetwork() {
+        await this.initWeb3(this.currentNetwork)
+      },
+    },
   };
 </script>

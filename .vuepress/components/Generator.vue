@@ -314,8 +314,8 @@
                                 </b-col>
                             </b-row>
 
-                          <b-row align-v="end" class="mt-3" cols="2">
-                            <b-col>
+                          <b-row align-v="end" class="mt-3">
+                            <b-col md="6" lg="6">
                               <b-card header="Transaction"
                                       header-bg-variant="info"
                                       header-text-variant="white"
@@ -333,7 +333,7 @@
                                                         </b-icon-info-circle>
                                                 </span>
                                     <b-badge variant="success">
-                                      {{ web3.utils.fromWei(feeAmount, 'ether') }} {{ this.token.chainCurrency }}
+                                      {{ web3.utils.fromWei(feeAmount, 'ether') }} {{ chainCurrency }}
                                     </b-badge>
                                   </b-list-group-item>
                                   <b-list-group-item class="d-flex justify-content-between">
@@ -356,7 +356,7 @@
                                 </b-list-group>
                               </b-card>
                             </b-col>
-                            <b-col>
+                            <b-col md="6" lg="6" class="mt-3">
                               <ValidationProvider
                                   name="Token Agreement"
                                   :rules="{ required: true }"
@@ -434,7 +434,6 @@
           operable: false,
           tokenRecover: false,
           removeCopyright: false,
-          chainCurrency: ''
         },
       };
     },
@@ -482,19 +481,21 @@
         this.updateCap();
 
         try {
-          this.feeAmount = await this.promisify(this.contracts.service.methods.getPrice(this.tokenType).call);
+          this.feeAmount = this.web3.utils.toWei(`${this.feesByNetwork[this.tokenType]?.current}`, 'ether');
         } catch (e) {
-          console.log(e.message); // eslint-disable-line no-console
-
-          if (!this.isTestNet) {
-            this.makeToast(
-              'Warning',
-              'We are having an issue with Current Network Provider. Please switch Network or try again later.',
-              'warning',
-            );
-            this.feeAmount = this.web3.utils.toWei('0', 'ether');
-          } else {
-            this.feeAmount = this.web3.utils.toWei(`${this.token.price}`, 'ether');
+          try {
+            this.feeAmount = await this.promisify(this.contracts.service.methods.getPrice(this.tokenType).call);
+          } catch (e) {
+            if (!this.isTestNet) {
+              this.makeToast(
+                  'Warning',
+                  'We are having an issue with Current Network Provider. Please switch Network or try again later.',
+                  'warning',
+              );
+              this.feeAmount = this.web3.utils.toWei('0', 'ether');
+            } else {
+              this.feeAmount = this.web3.utils.toWei(`${this.token.price}`, 'ether');
+            }
           }
         }
 
@@ -638,7 +639,6 @@
         this.token.removeCopyright = detail.removeCopyright;
         this.token.price = detail.price;
         this.token.gas = this.web3.utils.toBN(detail.gas);
-        this.token.chainCurrency = networks?.[this.currentNetwork]?.mainCurrency || 'BITCI';
 
         this.token.decimals = detail.customizeDecimals ? this.token.decimals : 18;
       },

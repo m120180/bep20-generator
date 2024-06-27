@@ -22,14 +22,13 @@
                     <b-card-title class="pt-5 font-weight-light text-center" itemprop="name">
                         {{ t.name }}
                     </b-card-title>
-
                     <p class="card-price text-center">
-                        <b-badge variant="danger" v-if="t.originalPrice !== t.price">
-                            <s>{{ t.originalPrice }} <small>BNB</small></s>
+                        <b-badge variant="danger" v-if="fees[t.name].prev !== fees[t.name].current">
+                            <s>{{ fees[t.name].prev }} <small>{{ currencyCode }}</small></s>
                         </b-badge>
                         <span itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="align-middle">
-                            <span itemprop="price">{{ t.price }}</span>
-                            <small class="term" itemprop="priceCurrency">BNB</small>
+                            <span itemprop="price">{{ fees[t.name].current }}</span>
+                            <small class="term" itemprop="priceCurrency">{{ currencyCode }}</small>
                         </span>
                     </p>
 
@@ -112,6 +111,16 @@
     mixins: [
       tokenDetails,
     ],
+    props: {
+      fees: {
+        prev: Number,
+        current: Number
+      },
+      currencyCode: {
+        type: String,
+        default: 'BITCI'
+      }
+    },
     data () {
       return {
         carousel: null,
