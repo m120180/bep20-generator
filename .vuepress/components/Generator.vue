@@ -397,6 +397,7 @@
 </template>
 
 <script>
+  import config from '../config';
   import dapp from '../mixins/dapp';
   import tokenDetails from '../mixins/tokenDetails';
   import {networks} from "../constants/networks";
@@ -449,6 +450,7 @@
     },
     methods: {
       async initDapp () {
+        console.log(process.env)
         this.network.current = this.network.list[this.currentNetwork];
         try {
           await this.initWeb3(this.currentNetwork, true);
@@ -481,7 +483,7 @@
         this.updateCap();
 
         try {
-          this.feeAmount = this.web3.utils.toWei(`${this.feesByNetwork[this.tokenType]?.current}`, 'ether');
+          this.feeAmount = this.web3.utils.toWei(`${this.feesByNetwork[this.tokenType]}`, 'ether');
         } catch (e) {
           try {
             this.feeAmount = await this.promisify(this.contracts.service.methods.getPrice(this.tokenType).call);

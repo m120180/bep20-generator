@@ -26,6 +26,11 @@ module.exports = {
       pixelId: vars.fbPixelId,
     }],
   ],
+  define: {
+    'process.env': {
+      NODE_ENV: process.env.NODE_ENV
+    }
+  },
   defaultNetwork: vars.defaultNetwork,
   serviceReceiver: vars.serviceReceiver,
 };

@@ -12,6 +12,7 @@ import Amazing from '../abi/token/AmazingBEP20.json';
 
 import ServiceReceiverArtifact from '../abi/service/ServiceReceiver.json';
 import {networks} from "../constants/networks";
+import {networkIds, networkNames} from "../constants/networkIds";
 
 export default {
   mixins: [
@@ -29,8 +30,8 @@ export default {
         default: config.defaultNetwork,
         current: null,
         map: {
-          1907: 'mainnet',
-          1908: 'testnet',
+          [networkIds.BitciMain]: networkNames.BitciMain,
+          [networkIds.BitciTest]: networkNames.BitciTest,
         },
         list: networks,
       },

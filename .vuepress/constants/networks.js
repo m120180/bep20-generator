@@ -1,21 +1,39 @@
 import {feeList} from "./feeList";
+import {networkIds, networkNames} from "./networkIds";
+
 
 export const networks = {
-    mainnet: {
+    [networkNames.BitciMain]: {
         web3Provider: 'https://rpc.bitci.com/',
         explorerLink: 'https://bitciexplorer.com',
-        id: 1907,
+        id: networkIds.BitciMain,
         name: 'Bitcichain',
         mainCurrency: 'BITCI',
-        fees: feeList[1907]
+        fees: feeList[networkIds.BitciMain]
     },
-    testnet: {
+    [networkNames.BitciTest]: {
         web3Provider: 'https://testnet.bitcichain.com/',
         explorerLink: 'https://testnet.bitciexplorer.com',
-        id: 1908,
+        id: networkIds.BitciTest,
         name: 'Bitcichain - Testnet',
         mainCurrency: 'BITCIT',
         isTestNet: true,
-        fees: feeList[1908]
-    }
+        fees: feeList[networkIds.BitciTest]
+    },
+    [networkNames.ArbitrumMain]: {
+        web3Provider: 'https://arbitrum-mainnet.infura.io/',
+        explorerLink: 'https://explorer.arbitrum.io/',
+        id: networkIds.ArbitrumMain,
+        name: 'Arbitrum One',
+        mainCurrency: 'ETH',
+        fees: feeList[networkIds.ArbitrumMain]
+    },
+    [networkNames.BnbMain]: {
+        web3Provider: 'https://bsc-dataseed.binance.org/',
+        explorerLink: 'https://bscscan.com/',
+        id: networkIds.BnbMain,
+        name: 'BNB Chain',
+        mainCurrency: 'BNB',
+        fees: feeList[networkIds.BnbMain]
+    },
 }

@@ -23,13 +23,14 @@
                         {{ t.name }}
                     </b-card-title>
                     <p class="card-price text-center">
-                        <b-badge variant="danger" v-if="fees[t.name].prev !== fees[t.name].current">
-                            <s>{{ fees[t.name].prev }} <small>{{ currencyCode }}</small></s>
-                        </b-badge>
-                        <span itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="align-middle">
-                            <span itemprop="price">{{ fees[t.name].current }}</span>
+<!--                        <b-badge variant="danger" v-if="fees[t.name].prev !== fees[t.name].current">-->
+<!--                            <s>{{ fees[t.name].prev }} <small>{{ currencyCode }}</small></s>-->
+<!--                        </b-badge>-->
+                        <span itemprop="offers" v-if="fees[t.name]" itemscope itemtype="http://schema.org/Offer" class="align-middle">
+                            <span itemprop="price">{{ fees[t.name] }}</span>
                             <small class="term" itemprop="priceCurrency">{{ currencyCode }}</small>
                         </span>
+                        <span v-else>-</span>
                     </p>
 
                     <b-list-group flush>
