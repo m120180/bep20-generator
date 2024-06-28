@@ -85,7 +85,7 @@
                         </b-list-group-item>
 
                         <b-list-group-item variant="warning"
-                                           :to="{ path: '/create-token/', query: { tokenType: t.name }}"
+                                           :to="{ path: '/create-token/', query: { tokenType: t.name, network }}"
                                            class="justify-content-between align-items-center text-center py-3"
                                            itemprop="url">
                             Create
@@ -120,7 +120,8 @@
       currencyCode: {
         type: String,
         default: 'BITCI'
-      }
+      },
+      network: String
     },
     data () {
       return {

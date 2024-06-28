@@ -47,7 +47,7 @@
                   </option>
                 </b-form-select>
               </b-form-group>
-                <ui--pricing-table :fees="feesByNetwork" :currencyCode="chainCurrency"/>
+                <ui--pricing-table :fees="feesByNetwork" :network="currentNetwork" :currencyCode="chainCurrency"/>
             </b-col>
         </b-row>
         <b-row class="bg-dark text-white mx-0">
