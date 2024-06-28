@@ -1,18 +1,18 @@
 ---
 component: Home
-title: Token Generator | Create Your Token for FREE
+title: Make My Token - Token Generator
 description: Create your own Smart Contract without coding. Token Generator is the easiest and fastest way to create your own token on the supported networks. No coding skills are required.
 meta:
     - property: twitter:title
-      content: Token Generator | Create Your Token for FREE
+      content: Make My Token - Token Generator
     - property: og:title
-      content: Token Generator | Create Your Token for FREE
+      content: Make My Token - Token Generator
     - property: twitter:description
       content: Create your own Smart Contract without coding. Token Generator is the easiest and fastest way to create your own token on the supported networks. No coding skills are required.
     - property: og:description
       content: Create your own Smart Contract without coding. Token Generator is the easiest and fastest way to create your own token on the supported networks. No coding skills are required.
     - property: og:url
-      content: https://digiswap-core.github.io/bep20-generator/
+      content: https://m120180.github.io/bep20-generator/
 ---
 
 # Token Generator - DAPP
@@ -21,7 +21,7 @@ Easily deploy Smart Contract for a Standard, Capped, Mintable, Burnable Token.
 
 ## Try it
 
-https://digiswap-core.github.io/bep20-generator/
+https://m120180.github.io/bep20-generator/
 
 ## License
 
