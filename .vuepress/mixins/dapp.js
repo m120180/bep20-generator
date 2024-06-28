@@ -33,7 +33,7 @@ export default {
           [networkIds.BitciMain]: networkNames.BitciMain,
           [networkIds.BitciTest]: networkNames.BitciTest,
         },
-        list: networks,
+        list: config.isProd ? this.filterNetworks(networks) :networks,
       },
       serviceReceiver: config.serviceReceiver,
       tokenList: {

@@ -58,6 +58,15 @@ export default {
     capitalizeFirstLetter(string) {
       if (!string) return string
       return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
+    },
+    filterNetworks(networks) {
+      const result = {}
+      for (const networkName in networks) {
+        if (!networks[networkName]?.isTestNet) {
+          result[networkName] = networks[networkName]
+        }
+      }
+      return result;
     }
   },
 };

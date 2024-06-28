@@ -450,7 +450,6 @@
     },
     methods: {
       async initDapp () {
-        console.log(process.env)
         this.network.current = this.network.list[this.currentNetwork];
         try {
           await this.initWeb3(this.currentNetwork, true);

@@ -33,4 +33,6 @@ module.exports = {
   },
   defaultNetwork: vars.defaultNetwork,
   serviceReceiver: vars.serviceReceiver,
+  isDev: process.env.NODE_ENV === 'development',
+  isProd: process.env.NODE_ENV === 'production'
 };
