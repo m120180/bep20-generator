@@ -69,7 +69,6 @@ export default {
       }
 
       if (checkWeb3 && (typeof window.ethereum !== 'undefined')) {
-        console.log('injected bsc'); // eslint-disable-line no-console
         this.web3Provider = window.ethereum;
 
         this.web3 = new Web3(this.web3Provider);
@@ -83,7 +82,6 @@ export default {
           await this.initWeb3(network, false);
         }
       } else {
-        console.log('provided bsc'); // eslint-disable-line no-console
         this.network.current = this.network.list[network];
         this.web3Provider = new Web3.providers.HttpProvider(this.network.list[network].web3Provider);
         this.web3 = new Web3(this.web3Provider);

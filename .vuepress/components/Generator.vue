@@ -322,7 +322,7 @@
                                       no-body
                                       class="mt-3">
                                 <b-list-group flush class="payment-box">
-                                  <b-list-group-item class="d-flex justify-content-between">
+                                  <b-list-group-item class="d-flex align-items-center justify-content-between">
                                                 <span>
                                                     Commission Fee:
                                                     <b-icon-info-circle v-b-popover.v-warning.hover.top="
@@ -332,8 +332,11 @@
                                                         'safe, running and constantly updated.'">
                                                         </b-icon-info-circle>
                                                 </span>
-                                    <b-badge variant="success">
+                                    <b-badge v-if="!feeLoading" variant="success">
                                       {{ web3.utils.fromWei(feeAmount, 'ether') }} {{ chainCurrency }}
+                                    </b-badge>
+                                    <b-badge v-else>
+                                      <ui--loader :size="8" :loading="feeLoading" :margin="false" />
                                     </b-badge>
                                   </b-list-group-item>
                                   <b-list-group-item class="d-flex justify-content-between">
@@ -397,7 +400,6 @@
 </template>
 
 <script>
-  import config from '../config';
   import dapp from '../mixins/dapp';
   import tokenDetails from '../mixins/tokenDetails';
   import {networks} from "../constants/networks";
@@ -410,6 +412,7 @@
     ],
     data () {
       return {
+        feeLoading: true,
         loading: true,
         currentNetwork: null,
         tokenType: '',
@@ -481,11 +484,12 @@
         this.updateSupply();
         this.updateCap();
 
+        this.feeLoading = true;
         try {
           this.feeAmount = this.web3.utils.toWei(`${this.feesByNetwork[this.tokenType]}`, 'ether');
         } catch (e) {
           try {
-            this.feeAmount = await this.promisify(this.contracts.service.methods.getPrice(this.tokenType).call);
+            this.feeAmount = await this.promisify(this.contracts.service.methods.getPrice(`${this.tokenType}BEP20`).call);
           } catch (e) {
             if (!this.isTestNet) {
               this.makeToast(
@@ -498,6 +502,8 @@
               this.feeAmount = this.web3.utils.toWei(`${this.token.price}`, 'ether');
             }
           }
+        } finally {
+          this.feeLoading = false
         }
 
         if (!this.isTestNet) {
@@ -659,29 +665,28 @@
         const params = [name, symbol];
 
         switch (this.tokenType) {
-        case 'Hello':
-          // nothing else
-          break;
-        case 'Simple':
-          params.push(initialBalance);
-          break;
-        case 'Standard':
-        case 'Burnable':
-        case 'Unlimited':
-        case 'Amazing':
-          params.push(decimals);
-          params.push(initialBalance);
-          break;
-        case 'Mintable':
-        case 'Common':
-          params.push(decimals);
-          params.push(cap);
-          params.push(initialBalance);
-          break;
-        default:
-          throw new Error(
-            'Invalid Token Type',
-          );
+          case 'Hello':
+            break;
+          case 'Simple':
+            params.push(initialBalance);
+            break;
+          case 'Standard':
+          case 'Burnable':
+          case 'Unlimited':
+          case 'Amazing':
+            params.push(decimals);
+            params.push(initialBalance);
+            break;
+          case 'Mintable':
+          case 'Common':
+            params.push(decimals);
+            params.push(cap);
+            params.push(initialBalance);
+            break;
+          default:
+            throw new Error(
+              'Invalid Token Type',
+            );
         }
 
         params.push(this.contracts.service.options.address);

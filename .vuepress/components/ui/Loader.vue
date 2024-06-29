@@ -1,9 +1,9 @@
 <template>
     <PulseLoader
             v-if="loading"
-            class="my-3"
             :loading="loading"
             :color="color"
+            :class="{'my-3': margin}"
             :size="size"></PulseLoader>
 </template>
 
@@ -11,6 +11,10 @@
   export default {
     name: 'Loader',
     props: {
+      margin: {
+        type: Boolean,
+        default: true
+      },
       loading: {
         type: Boolean,
         default: false,
