@@ -479,7 +479,6 @@
         }
 
         this.initToken(this.tokenType);
-
         this.updateTokenDetails();
         this.updateSupply();
         this.updateCap();
